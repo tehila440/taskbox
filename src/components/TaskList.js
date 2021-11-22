@@ -21,14 +21,16 @@ export function PureTaskList({loading, tasks, onPinTask, onArchiveTask}) {
       );
 
 if (loading) {
-    return <div className='list-items'>
+    return (
+    <div className='list-items'>
         {LoadingRow}
         {LoadingRow}
         {LoadingRow}
         {LoadingRow}
         {LoadingRow}
         {LoadingRow}
-        </div>;
+        </div>
+    );
 }
 if (tasks.length===0) {
     return (
@@ -49,7 +51,7 @@ const tasksInOrder = [
 
 return (
     <div className='list-items'>
-        {tasks.map(task=>(
+        {tasksInOrder.map(task=>(
             <Task key={task.id} task={task} {...events} />
         ))}
     </div>
